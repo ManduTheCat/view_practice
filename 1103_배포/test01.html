@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <dvi id="app">
+      <div id="val1">{{msg}}</div>
+      <div id="val2">{{msg}}</div>
+      <div id="val3">{{count}}</div>
+      <!-- 이벤트를 등록하면 뷰 가 @ (directive) 를 보고 관찰한다 -->
+      <button @click="count++">카운트업</button>
+    </dvi>
+    <script>
+      // 뷰객체 생성자로 데이터 받는다
+      const app = new Vue({
+        el: "#app",
+        data: {
+          msg: "Hello VueJs",
+          msg1: "test1 출력",
+          msg2: "test2 출력",
+          count: 1,
+        },
+      });
+    </script>
+  </body>
+</html>

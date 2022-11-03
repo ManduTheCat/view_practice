@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 1. 라이브러리  -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <!-- 2. 화면 작성 -->
+    <h1 id="app">{{msg}}</h1>
+    <script>
+      // 3. new Vue();
+      const app = new Vue({
+        el: "#app",
+        data: {
+          msg: "datas",
+        },
+      });
+    </script>
+  </body>
+</html>
