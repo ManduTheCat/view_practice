@@ -8,13 +8,20 @@
   </head>
   <body>
     <div id="app">
-      <div>{{msg}}</div>
+      <div v-show="isShow">{{msg}}</div>
+      <button @click="hide"></button>
     </div>
     <script>
       new Vue({
         el: "#app",
         data: {
           msg: "보이나요?",
+          isShow: true,
+        },
+        methods: {
+          hide() {
+            this.isShow = !this.isShow;
+          },
         },
       });
     </script>

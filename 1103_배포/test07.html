@@ -8,14 +8,14 @@
   </head>
   <body>
     <div id="app">
-      <input type="text" />
+      <input v-model="msg" type="text" />
       <div>{{msg}}</div>
     </div>
     <script>
       let app = new Vue({
         el: "#app",
         data: {
-          msg: "Hello Vue~!",
+          msg: "Hello Vue vmodel~!",
         },
       });
     </script>

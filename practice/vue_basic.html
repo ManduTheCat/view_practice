@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h3>test1</h3>
+      <h3>test2</h3>
+    </div>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <ul id="item">
+      <li class="common"></li>
+      <li class="common"></li>
+      <li class="common"></li>
+      <li class="common"></li>
+      <li class="common"></li>
+    </ul>
+
+    <!-- ul#category>li.common.item*5 -->
+    <ul id="category">
+      <li class="common item"></li>
+      <li class="common item"></li>
+      <li class="common item"></li>
+      <li class="common item"></li>
+      <li class="common item"></li>
+    </ul>
+
+    <!-- ul>li*5{메뉴} -->
+    <ul>
+      <li>메뉴</li>
+      <li>메뉴</li>
+      <li>메뉴</li>
+      <li>메뉴</li>
+      <li>메뉴</li>
+    </ul>
+
+    <!-- $ $$$ 넘버링 순서대로 나열 -->
+
+    <!--  table>(tr>th*2)(tr>td*2)*5 -->
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+
+  <!-- (tr>td[title="name" colspan="3"])+tr>td*3 -->
+  <table>
+    <tr>
+      <td title="name" colspan="3"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+
+  <table>
+    <!-- (tr>td[title="name" colspan="3"])+tr>td{내용}*3 -->
+    <tr>
+      <td title="name" colspan="3"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- lorem -->
+  <div>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias porro cupiditate totam illum
+    praesentium officia, nemo animi consequatur vero dolor iste natus sed harum pariatur aut! Quo
+    tempore dignissimos hic.
+  </div>
+  <div>Lorem ipsum dolor sit amet.</div>
+  <form action="" method="post">
+    <input type="text" name="" id="" />
+    <label for=""></label>
+    <input type="text" name="" id="" />
+    <label for=""></label>
+    <input type="text" name="" id="" />
+    <label for=""></label>
+    <input type="text" name="" id="" />
+    <input type="submit" value="" />
+  </form>
+</html>

@@ -10,14 +10,15 @@
     <div id="app">
       <div>
         <span>나이 : </span>
-        <input type="number" />
+        <!-- age 랑 연결 시켜~ -->
+        <input type="number" v-model="age" />
       </div>
       <div>
         요금 :
-        <span>무료</span>
-        <span>7000원</span>
-        <span>10000원</span>
-        <span>3000원</span>
+        <span v-if="age < 10">무료</span>
+        <span v-else-if="age < 20">7000원</span>
+        <span v-else-if="age <30">10000원</span>
+        <span v-else-if="age <40">3000원</span>
       </div>
     </div>
     <script>
