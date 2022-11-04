@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 객체 내에 함수를 선언할때
+      const obj = {
+        name: "js",
+        method1() {},
+        method2: function () {},
+      };
+
+      let member = {
+        memberId: "userId",
+        name: "mj",
+      };
+      // deepCopy
+      const memberCopy = { ...member };
+      console.log("member :", member);
+
+      // arrDeepCopy
+      const arr = [0, 1, 2, 3];
+      const arrCopy = [...arr];
+      console.log("arr copy");
+      console.log(arrCopy);
+      const concatArr = [...arr, ...arr];
+      console.log(concatArr);
+
+      const obj1 = { a: { b: 1, c: 1 }, d: 2 };
+      const obj2 = { ...obj1, a: { ...obj1.a } };
+      console.log(obj1);
+      console.log(obj2.isPrototypeOf);
+      console.log(obj1 === obj2);
+
+      // 그조할당
+      const data = {
+        data1: "1",
+        data2: "2",
+      };
+      const { data1, data2 } = data;
+      console.log(data1);
+
+      const Names = [3, 2, 1];
+      const [index1, index2, index3] = Names;
+      console.log(index1);
+
+      //property shortHand
+      const isbn = "111-111-11";
+      const title = "Vue";
+      const price = "30000";
+      const book = { isbn, title, price };
+      console.log(book);
+    </script>
+  </body>
+</html>

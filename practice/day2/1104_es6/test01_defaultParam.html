@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    const daA = (in1, in2 = "data") => {
+      console.log(`${in1} ${in2}`);
+    };
+    daA("1");
+    daA("1", "2");
+    const fun2 = (...data) => {
+      console.log(data);
+    };
+    console.log(fun2("dtat1", "data2"));
+  </script>
+</html>

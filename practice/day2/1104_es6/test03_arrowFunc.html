@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="data"></h3>
+  </body>
+  <script>
+    `use strict`;
+
+    const max = (data1, data2) => {
+      if (data2 < data1) {
+        return data1;
+      }
+      return data2;
+    };
+    console.log(max(10, 20));
+
+    setTimeout(function () {
+      console.log("test 2000ms");
+    }, 2000);
+
+    setTimeout((el) => console.log("test 2000ms"), 2000);
+
+    ((el) => {
+      console.log(el);
+    })("data");
+
+    const data = [1, 2, 3, 4, 5];
+    data.push(2);
+    console.log(data);
+    const sData = "hi";
+    sData += "2";
+    console.log(Sdata);
+  </script>
+</html>

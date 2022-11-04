@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="data"></h3>
+  </body>
+  <script>
+    "use strict";
+
+    let name = "kim";
+    let age = "22";
+    const Member = {
+      member: null,
+    };
+
+    console.log(Member?.member);
+    console.log(null ?? "강혜성");
+    function test(...data) {
+      return data;
+    }
+
+    const sp = [...test("test1", "test2"), "강혜성", "김명진"];
+
+    console.log(sp);
+  </script>
+</html>
