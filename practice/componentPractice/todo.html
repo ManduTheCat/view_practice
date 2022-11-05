@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>todo</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+
+    <div id="app">
+      {{messgae}}
+      <todo-list></todo-list>
+      <todo-footer></todo-footer>
+    </div>
+    <div id="app2">
+      <todo-footer></todo-footer>
+    </div>
+  </body>
+  <script>
+    Vue.component("todo-footer", {
+      template: "<p>This is another global child component</p>",
+    });
+    const app = new Vue({
+      el: "#app",
+      data: {
+        messgae: "this is a parent component",
+      },
+      components: {
+        "todo-list": { template: "<p>This is another local child component </p>" },
+      },
+    });
+    const app2 = new Vue({
+      el: "#app2",
+    });
+  </script>
+</html>

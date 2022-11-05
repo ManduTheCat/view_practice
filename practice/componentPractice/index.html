@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>첫번째 인스턴스 등록</h1>
+      <button>컴포넌트 등록</button>
+      <my-component></my-component>
+      <my-local-component></my-local-component>
+    </div>
+    <div id="app2">
+      <h1>두번째째 인스턴스 등록</h1>
+      <button>컴포넌트 등록</button>
+      <my-component></my-component>
+      <my-local-component></my-local-component>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+  <script>
+    const lCmp = {
+      template: `<div> 지역 컴포넌트 등록 </div>`,
+    };
+    Vue.component("my-component", {
+      template: `<div> 전역 컴포넌트 등록</div>`,
+    });
+    new Vue({
+      el: `#app`,
+      components: {
+        "my-local-component": lCmp,
+      },
+    });
+
+    //2번재 인스턴스 전역은뜨는데 지역은 안뜬다. 유효범위가 다르기때문에
+    new Vue({
+      el: "#app2",
+    });
+  </script>
+</html>

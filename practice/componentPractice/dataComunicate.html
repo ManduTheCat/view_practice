@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>comunicate</title>
+  </head>
+  <body>
+    <div id="app">
+      <my-comp1></my-comp1>
+      <my-comp2 v-bind:chdata="message"></my-comp2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <script>
+      Vue.component("my-comp2", {
+        props: ["chdata"],
+        template: "<p>{{chdata}}</p>",
+      });
+      const cmp1 = {
+        template: "<div> 첫번째 지역 컴포넌트  : {{cmp1Data}}</div>",
+        data() {
+          return {
+            cmp1Data: 100,
+          };
+        },
+      };
+      const app = new Vue({
+        el: "#app",
+        components: {
+          "my-comp1": cmp1,
+        },
+        data() {
+          return { message: "Hello vue ~! passed from Parent Component" };
+        },
+      });
+    </script>
+  </body>
+</html>
