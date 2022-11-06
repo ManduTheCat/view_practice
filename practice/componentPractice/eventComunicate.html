@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eventComunication</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <div id="app">
+      <!-- 하위컴포넌트의 특정 이벤트 에 상위 컴포넌트 함수를 할당한다. -->
+      <!-- v-on: 하위 컴포넌트 : 호출할 상위 컴포넌트 -->
+      <child-component @send-data="printText"></child-component>
+    </div>
+    <script>
+      Vue.component("child-component", {
+        // 전역 컴포넌트 선언
+        // 다음 showLog 라는 이벤트를 가지고 있는 자식 컴포넌트
+        template: `<button v-on:click="showLog">show</button>`,
+        methods: {
+          // 이벤트 메서드 등록
+          showLog() {
+            // 하위컴포던트는 다음을 실행해라
+            // 하위컴포넌트는 send-data 를 실행해라 = printText (즉 할당한 상위 매서드 )
+            this.$emit("send-data");
+          },
+        },
+      });
+      // 상위 컴포넌트
+      new Vue({
+        el: "#app",
+        data: {
+          message: "Hellow Vue! passed from Parent Component",
+        },
+        methods: {
+          // 이벤트가 발생하면 다음 함수를 실행한다.
+          printText() {
+            console.log("recceeved an event");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
