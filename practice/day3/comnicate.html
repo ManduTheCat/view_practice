@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <div id="app">
+      <child-component @send-data="parentEvent"></child-component>
+    </div>
+    <template id="childTemplate">
+      <button v-on:click="childEvent">행복 버튼</button>
+    </template>
+    <script>
+      Vue.component("child-component", {
+        methods: {
+          childEvent() {
+            this.$emit("send-data");
+          },
+        },
+        template: "#childTemplate",
+      });
+
+      new Vue({
+        el: "#app",
+        methods: {
+          parentEvent() {
+            console.log("parent Event");
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -14,17 +14,23 @@
     </div>
     <script>
       new Vue({
-        el: '#app',
-        data: {
-          message: 'Hello 싸피',
-          name: '안효인',
+        el: "#app",
+        // data: {
+        //   message: 'Hello 싸피',
+        //   name: '안효인',
+        // },
+        data() {
+          return {
+            message: "Hello 싸피",
+            name: "안효인",
+          };
         },
         methods: {
           helloEng() {
-            return 'Hello ' + this.name;
+            return "Hello " + this.name;
           },
           helloKor() {
-            return '안녕 ' + this.name;
+            return "안녕 " + this.name;
           },
         },
       });

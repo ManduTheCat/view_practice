@@ -12,11 +12,20 @@
       <my-comp></my-comp>
     </div>
     <!-- template 설정 -->
+    <template id="mycomp">
+      <div>
+        <h3>template 테그로 만드는 전역 컴포넌트 {{msg}}</h3>
+        <ul v-for="(item, index) in list" :key="index">
+          <li>{{item}}</li>
+        </ul>
+      </div>
+    </template>
     <script>
-      Vue.component("MyComp", {
-        template: "#MyComp",
+      Vue.component("my-comp", {
+        template: "#mycomp",
         data() {
           return {
+            list: [1, 2, 3, 4, 5],
             msg: "hello component",
           };
         },
