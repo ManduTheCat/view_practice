@@ -1,5 +1,5 @@
 {
-  "name": "hello_01",
+  "name": "lint-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -37,23 +37,7 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "bracketSameLine": true,
-          "singleQuote": false,
-          "semi": true,
-          "tabWidth": 2,
-          "trailingComma": "all",
-          "printWidth": 80,
-          "bracketSpacing": true,
-          "arrowParens": "always",
-          "endOfLine": "auto",
-          "useTabs": false
-        }
-      ]
-    }
+    "rules": {}
   },
   "browserslist": [
     "> 1%",
