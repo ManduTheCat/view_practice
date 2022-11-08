@@ -11,6 +11,7 @@
     <h2>컴포넌트 객체 데이터 전달</h2>
     <div id="app">
       <h2>사용자 정보</h2>
+      <!-- 자식의 member 에 user 할당 -->
       <member-view :member="user"></member-view>
     </div>
     <template id="memberview">
@@ -22,7 +23,7 @@
     </template>
     <script>
       Vue.component("member-view", {
-        props: ["member"],
+        props: ["member"], // 부모가 객체 형태로 주는것도 가능 자식은 맴버라는 그릇을 props 에 미리 선언을 해야한다.
         template: "#memberview",
       });
       new Vue({
