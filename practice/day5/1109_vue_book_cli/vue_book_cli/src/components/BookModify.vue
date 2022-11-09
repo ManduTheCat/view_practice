@@ -33,11 +33,17 @@ export default {
       author: "",
       price: "",
       content: "",
+      test: "",
     };
   },
   created() {
+    console.log("BookModify Created");
     // const params = new URL(document.location).searchParams;
-
+    console.log(this.$EventBus.$on);
+    this.$EventBus.$on("send", (test) => {
+      console.log("이벤트 받음");
+      console.log(test);
+    });
     const booklist = JSON.parse(localStorage.getItem("booklist"));
     for (let obj of booklist.books) {
       if (this.modiIsbn == obj.isbn) {
@@ -65,14 +71,29 @@ export default {
     },
     modifyBook() {
       // const params = new URL(document.location).searchParams;
-
-      // TODO: 
+      // TODO:
       // 로컬스토리지 저장소 도서정보 가져오기
+      const bookData = JSON.parse(localStorage.getItem("booklist"));
+      for (let i = 0; i < bookData.books.length; i++) {
+        // 수정할 도서일 경우
+        if (bookData.books[i].isbn == this.isbn) {
+          // 도서의 정보를 수정한다.
+          bookData.books[i] = {
+            isbn: this.isbn,
+            title: this.title,
+            author: this.author,
+            price: this.price,
+            content: this.content,
+          };
+          break;
+        }
+      }
+      localStorage.setItem("booklist", JSON.stringify(bookData));
+      alert("수정이 완료되었습니다.");
       // 동일한 도서번호 객체 검색해서 기존 도서 정보 변경하기
       // 변경한 도서정보로 로컬스토리지 저장소 변경하기
       // 수정후 상위뷰(HomeView.vue) 에게 이벤트 보내기 : 도서변경완료했으니 도서목록 보여주세요!! 요청의뢰!!
       // const booklist = JSON.parse(localStorage.getItem("booklist"));
-
     },
     movePage() {
       this.$emit("moveList", true);

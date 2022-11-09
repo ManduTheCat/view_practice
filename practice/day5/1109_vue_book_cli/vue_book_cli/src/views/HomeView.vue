@@ -43,7 +43,9 @@
 import HeaderNav from "@/components/common/HeaderNav.vue";
 import BookList from "@/components/BookList.vue";
 import BookCreate from "@/components/BookCreate.vue";
-
+import BookView from "@/components/BookView.vue";
+import BookModify from "@/components/BookModify.vue";
+import BookDelete from "@/components/BookDelete.vue";
 
 export default {
   name: "HomeView",
@@ -52,10 +54,13 @@ export default {
     HeaderNav,
     BookList,
     BookCreate,
+    BookView,
+    BookModify,
+    BookDelete,
   },
   data() {
     return {
-      // HomeView에서 조건에 따라 화면 제어 
+      // HomeView에서 조건에 따라 화면 제어
       listView: true,
       createView: false,
       modiView: false,
@@ -65,28 +70,33 @@ export default {
     };
   },
   methods: {
-    listToCre(tri) { // 등록 제어
+    listToCre(tri) {
+      // 등록 제어
       this.listView = false;
       this.createView = tri;
     },
-    changeView(isbn) { // 상세조회 제어
+    changeView(isbn) {
+      // 상세조회 제어
       this.listView = false;
       this.isbn = isbn;
       this.detailView = true;
     },
-    moveTolist(tri) { // 목록 제어
+    moveTolist(tri) {
+      // 목록 제어
       this.listView = tri;
       this.modiView = false;
       this.createView = false;
       this.detailView = false;
       this.deleteVeiw = false;
     },
-    moveToModi(isbn) { // 변경 제어
+    moveToModi(isbn) {
+      // 변경 제어
       this.detailView = false;
       this.isbn = isbn;
       this.modiView = true;
     },
-    deleteBook(isbn) { // 삭제 제어
+    deleteBook(isbn) {
+      // 삭제 제어
       this.detailView = false;
       this.isbn = isbn;
       this.deleteVeiw = true;
