@@ -8,7 +8,8 @@
       <input type="text" id="subject" v-model="article.subject" ref="subject" /><br />
       <label for="content">내용</label>
       <br />
-      <textarea id="content" v-model="article.content" ref="content" cols="35" rows="5"></textarea><br />
+      <textarea id="content" v-model="article.content" ref="content" cols="35" rows="5"></textarea
+      ><br />
       <button @click="checkValue">수정</button>
       <button @click="moveList">목록</button>
     </div>
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import http from "@/util/http-common";
 export default {
   name: "BoardModify",
   data() {
@@ -26,6 +28,9 @@ export default {
   created() {
     // 비동기
     // TODO : 글번호에 해당하는 글정보 얻기.
+    http.get(`/board/${this.$route.params.articleno}`).then(({ data }) => {
+      this.article = data;
+    });
     this.article = {
       articleno: 10,
       userid: "ssafy",
@@ -42,9 +47,14 @@ export default {
       // 작성자아이디, 제목, 내용이 없을 경우 각 항목에 맞는 메세지를 출력
       let err = true;
       let msg = "";
-      !this.userid && ((msg = "작성자 입력해주세요"), (err = false), this.$refs.userid.focus());
-      err && !this.subject && ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
-      err && !this.content && ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
+      !this.article.userid &&
+        ((msg = "작성자 입력해주세요"), (err = false), this.$refs.userid.focus());
+      err &&
+        !this.article.subject &&
+        ((msg = "제목 입력해주세요"), (err = false), this.$refs.subject.focus());
+      err &&
+        !this.article.content &&
+        ((msg = "내용 입력해주세요"), (err = false), this.$refs.content.focus());
 
       if (!err) alert(msg);
       // 만약, 내용이 다 입력되어 있다면 registArticle 호출
@@ -53,11 +63,18 @@ export default {
     modifyArticle() {
       console.log("글수정 하러가자!!!!");
       // 비동기
-      // TODO : 글번호에 해당하는 글정보 수정.
+      // TODO : 글번호에 해당하는 글정보 수정.// 안됨
+      http.put("board", this.article).then(({ data }) => {
+        let msg = "등록 처리 문제발생";
+        if (data === "success") msg = "성공";
+        alert(msg);
+        this.moveList();
+      });
     },
 
     moveList() {
       console.log("글목록 보러가자!!!");
+      this.$router.push({ name: "boardList" });
     },
   },
 };

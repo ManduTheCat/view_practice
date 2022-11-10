@@ -6,11 +6,18 @@
 </template>
 
 <script>
+import http from "@/util/http-common";
 export default {
   name: "BoardDelete",
   created() {
     // 비동기
     // TODO : 글번호에 해당하는 글을 삭제.
+    http.delete(`/board/${this.$route.params.articleno}`).then(({ data }) => {
+      let msg = "삭제 처리 문제발생";
+      if (data === "success") msg = "성공";
+      alert(msg);
+      this.$router.push({ name: "boardList" });
+    });
   },
 };
 </script>
