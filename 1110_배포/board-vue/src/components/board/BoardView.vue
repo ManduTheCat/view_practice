@@ -46,9 +46,12 @@ export default {
     };
   },
   created() {
-    // 비동기// 안됨
-    http.get(`board/${this.$route.params.articleno}`).then(({ data }) => {
-      this.article = data;
+    // 비동기
+    // http.get(`board/${this.$route.params.articleno}`).then(({ data }) => {
+    //   this.article = data;
+    // });
+    http.get(`board/${this.$route.params.articleno}`).then((res) => {
+      this.article = res.data;
     });
     // TODO : 글번호에 해당하는 글정보 얻기.
     // this.article = {
