@@ -7,6 +7,7 @@
     <h2>{{ $store.getters.msg2 }}</h2>
     <h2>{{ $store.getters.msg3 }}</h2>
     -->
+    <!-- 원래는 게더스 사용해서 가져와야하는데 아래 ...mapGetters 로 여러개 가져오기 가능 -->
     <h2>{{ msg1 }}</h2>
     <h2>{{ msg2 }}</h2>
     <h2>{{ msg3 }}</h2>

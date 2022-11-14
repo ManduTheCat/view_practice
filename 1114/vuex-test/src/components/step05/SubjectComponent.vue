@@ -17,6 +17,7 @@ export default {
       count: 0,
     };
   },
+  // this 로 안가져오고 객체로 가가져오는거 가능
   methods: {
     ...mapMutations({
       addMOne: "ADD_ONE",
