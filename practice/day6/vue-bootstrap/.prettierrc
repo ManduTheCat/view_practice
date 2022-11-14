@@ -26,7 +26,8 @@
         "bracketSpacing": true,
         "arrowParens": "always",
         "endOfLine": "auto",
-        "useTabs": false
+        "useTabs": false,
+        "parser": "flow"
       }
     ]
   }
